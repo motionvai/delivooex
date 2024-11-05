@@ -644,7 +644,7 @@ form button:hover {
     background-color: rgba(76, 175, 80, 0.9);
     border-radius: 8px;
     padding: 15px 30px;
-    width: 100%;
+    width: 80%;
     max-width: 400px;
     position: relative;
     top: 90px;
@@ -677,7 +677,7 @@ form button:hover {
     margin-top: 100px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     max-width: 380px;
     position: relative;
     margin-bottom: 500px;
