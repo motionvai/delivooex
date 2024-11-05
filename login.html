@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login/Signup</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+<body id="login-body">
+    <!-- Notification Popup -->
+<div id="notification" >
+    <span id="notification-message"></span>
+</div>
+
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
+                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-links" href="career.html">Career</a></li>
+            </ul>
+            <div class="hamburger" >
+            <!-- <img src="assets/images/delivoo favi-01.png" alt="Menu" >-->
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            
+            </div>
+        </nav>
+    </header>
+    
+
+    <div class="login-nave">
+        <a onclick="showForm('signup')" id="signup-tab" class="active" >Sign Up</a>
+        <a onclick="showForm('login')" id="login-tab" >Login</a>
+    </div>
+
+    <div class="container">
+        <div class="form-container active" id="signup-form">
+            <h3>Sign Up</h3>
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <div>
+                <input type="checkbox" id="show-signup-password" onclick="togglePasswordVisibility('signup-password', this)"> <label for="show-signup-password">Show Password</label>
+            </div>
+            <button  id="pbutton" onclick="signup()">Sign Up</button>
+        </div>
+
+        <div class="form-container " id="login-form">
+            <h3>Login</h3>
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <div>
+                <input type="checkbox" id="show-login-password" onclick="togglePasswordVisibility('login-password', this)"> <label for="show-login-password">Show Password</label>
+            </div>
+            <button id="pbutton" onclick="login()">Login</button>
+        </div>   
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-section logo-section">
+                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
+                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
+            </div>
+
+            <!-- Quick Links -->
+            
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +880-1881147707</p>
+                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
+            </div>
+
+            <!-- Social Media and Newsletter -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

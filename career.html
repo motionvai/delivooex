@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Career</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="notification" class="notification">
+        <p id="notification-message"></p>
+    </div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
+                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-links" href="career.html">Career</a></li>
+            </ul>
+            <div class="hamburger" >
+               <!-- <img src="assets/images/delivoo favi-01.png" alt="Menu" >-->
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            
+            </div>
+        </nav>
+    </header>
+    
+
+    <div class="career-container">
+        
+            <h1 id="career-header">Join Our Team</h1>
+        
+        <div class="tabs">
+            <button id="apply-btn" class="tab-button active">Apply as a Rider</button>
+            <button id="login-btn" class="tab-button">Login as a Rider</button>
+        <!--<a onclick="showForm('signup')" id="signup-tab" class="active" >Sign Up</a>
+            <a onclick="showForm('login')" id="login-tab" >Login</a>-->
+        
+        
+        </div>
+        <section id="apply-section" class="tab-content active">
+            <h2>Application Form</h2>
+            <form id="apply-form">
+                <input type="text" placeholder="Full Name" required>
+                
+                <input type="text" placeholder="Phone Number" required>
+                <textarea type="text" placeholder="Why do you want to join?" required></textarea>
+                <input type="email" placeholder="Email" required>
+                <input type="password" id="apply-password" placeholder="Password">
+                <div>
+                    <input type="checkbox" id="apply-password" onclick="togglePasswordVisibility('apply-password', this)"> Show Password
+                </div>
+                <button type="submit">Submit Application</button>
+            </form>
+        </section>
+        <section id="login-section" class="tab-content">
+            <h2>Login Form</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" id="login-password"  placeholder="Password" required>
+                <div>
+                    <input type="checkbox" onclick="togglePasswordVisibility('login-password', this)"> Show Password
+
+                </div>
+                   
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-section logo-section">
+                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
+                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
+            </div>
+    
+            <!-- Quick Links -->
+            
+    
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +880-1881147707</p>
+                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
+            </div>
+    
+            <!-- Social Media and Newsletter -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+        </div>
+    
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
