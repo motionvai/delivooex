@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    
+</style>
+
+</head>
+<body id="dashboard-new">
+    <!-- Notification Popup -->
+    <div id="notification" >
+        <span id="notification-message"></span>
+    </div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
+                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-links" href="loading.html">Profile</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="dashboard-ac">
+        <aside class="sidebar" id="sidebar">
+            <select id="sidebarDropdown">
+               <!-- <option value="">select one</option>-->
+                <option value="user_dashboard">Order History</option>
+                <option value="new_order">Create New Order</option>
+                <option value="account">Account & Payment</option>
+            </select>
+        </aside>     
+        <main class="content-order">       
+            
+                
+                <section id="createOrder">
+                    <div class="subscription-container w-full">
+                        <h3>Active Subscription --></h3>
+                        
+                        <button id="drawerToggle" class="absolute top-0  mt-4 p-2 bg-blue-500 text-white rounded">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div id="activeSubscription" class="drawer drawer-hidden fixed top-0 left-0 w-full bg-white shadow-lg p-4" style="width: 350px;">
+                            
+                        </div>
+                        
+                    </div>
+                    <script>
+                        const drawerToggle = document.getElementById('drawerToggle');
+                        const drawer = document.getElementById('activeSubscription'); // Correcting to match the ID
+                
+                        drawerToggle.addEventListener('click', () => {
+                            // Toggling the visibility of the drawer
+                            drawer.classList.toggle('drawer-hidden');
+                            drawer.classList.toggle('drawer-visible');
+                        });
+                    </script>
+                    
+                    <h2>Create New Order</h2>
+                    <div class="create-order-container">
+                        
+                        <!-- Order Details Section -->
+                        <div class="order-details">
+                            
+                            <label for="orderItem">Order Item:</label>
+                            <input type="text" id="orderItem" placeholder="Enter Item Description" required>
+                            
+                            <label for="orderWeight">Order Weight:</label>
+                            <select id="orderWeight" required>
+                                <option value="">Select Item Weight</option>
+                                <option value="Less_than_1kg">১ কেজির কম</option>
+                                <option value="1kg_to_5kg">প্রায় ২ কেজি</option>
+                                <option value="5kg_to_10kg">প্রায় ৩ কেজি</option>
+                                <option value="More_than_10kg">৫ কেজির নিচে</option>
+                            </select>
+                            
+                            <label for="boxSize">Box Size:</label>
+                            <select id="boxSize" required>
+                                <option value="">Select Box Size</option>
+                                <option value="Small">ছোট প্যাকেট</option>
+                                <option value="Medium">মধ্যম ১২ ইঞ্চি প্যাক</option>
+                                <option value="Large">২ পাউন্ড কেক/ ১.৫ * ১.৫ বর্গফুট </option>
+                                <option value="Extra Large">৫ পাউন্ড কেক/ ৩ * ৩ বর্গফুট</option>
+                            </select>
+                           
+                            <label for="receiverName">Receiver Name:</label>
+                            <input type="text" id="receiverName" placeholder="Enter Receiver Name" required>
+
+                            <label for="reciverPhone">Reciver Phone No.</label>
+                            <input type="tel" id="reciverPhone" placeholder="Enter Receiver phone Number" required>
+                            
+                            <label for="upozila">Upozila:</label>
+                            <select id="upozila" required>
+                                <option value="">Select Box Upozila</option>
+                                <option value="Bhola Sadar">Bhola Sadar</option>
+                                <option value="Daulatkhan">Daulatkhan</option>
+                                <option value="Borhanuddin">Borhanuddin</option>
+                                <option value="Lalmohan">Lalmohan</option>
+                                <option value="Tazumuddin">Tazumuddin</option>
+                                <option value="Charfashion">Charfashion</option>
+                                <option value="Manpura">Manpura</option>
+                            </select>
+
+                            <label for="deliveryAddress">Delivery Address:</label>
+                            <input type="text" id="deliveryAddress" placeholder="Enter Detail Delivery Address" required>
+                            
+                            <label for="deliveryMap">Delivery Address Google Map link:</label>
+                            <input type="url" id="deliveryMap" placeholder="https://maps.app.goo.gl/..........." required>
+                            
+                            <label for="paymentType">Payment Type:</label>
+                            <select id="paymentType" required>
+                                <option value="COD">Cash on Delivery (COD)</option>
+                                <option value="prepaid">Pre-paid</option>
+                                
+                            </select>
+                            <div id="orderAmountContainer" style="display: none;">
+                                <label for="orderAmount">Order Amount:</label>
+                                <input type="text" id="orderAmount" step="11.00" placeholder="Enter amount" >
+                            </div>
+
+                            
+
+                            <label for="orderType">Select Order Type:</label>
+                            <select id="orderType" required>
+                                <option value="">Select Order Type</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Scheduled">Scheduled</option>
+                            </select>
+                        
+                            <!-- Modal Popup for Scheduled Order Date and Time -->
+                            <div id="scheduledDateTimeModal" style="display: none; 
+                                                                    position: fixed; 
+                                                                    z-index: 1; 
+                                                                    left: 0; 
+                                                                    top: 0; 
+                                                                    width: 100%; 
+                                                                    height: 100%; 
+                                                                    overflow: auto; 
+                                                                    background-color: rgba(0, 0, 0, 0.4);">
+                                <div class="modal-content" style="background-color: #fefefe; 
+                                                                margin: 15% auto; 
+                                                                padding: 20px; 
+                                                                border: 1px solid #888; 
+                                                                width: 80%; 
+                                                                max-width: 400px; 
+                                                                border-radius: 10px; 
+                                                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                                    <span id="closeModal" class="close" style="color: #aaa; 
+                                                                            float: right; 
+                                                                            font-size: 28px; 
+                                                                            font-weight: bold; 
+                                                                            cursor: pointer;">&times;</span>
+                                    <h2 style="font-size: 18px; margin-bottom: 20px;">Select Date and Time for Scheduled Delivery</h2>
+                                    <input type="datetime-local" id="scheduledDateTime" required style="width: 100%; 
+                                                                                                        padding: 8px; 
+                                                                                                        margin-bottom: 20px; 
+                                                                                                        border: 1px solid #ccc; 
+                                                                                                        border-radius: 4px; 
+                                                                                                        box-sizing: border-box; 
+                                                                                                        font-size: 14px;">
+                                    <div style="margin-top: 10px; text-align: right;">
+                                        <button id="saveDateTime" style="background-color: #4CAF50; 
+                                                                        color: white; 
+                                                                        padding: 10px 15px; 
+                                                                        border: none; 
+                                                                        border-radius: 4px; 
+                                                                        cursor: pointer; 
+                                                                        margin-right: 5px;">Save</button>
+                                        <button id="cancelDateTime" style="background-color: #f44336; 
+                                                                        color: white; 
+                                                                        padding: 10px 15px; 
+                                                                        border: none; 
+                                                                        border-radius: 4px; 
+                                                                        cursor: pointer;">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                
+                        <!-- Pickup Address Section -->
+                        <div class="pickup-address">
+                            <h3>Pickup Address</h3>
+                            <div id="addressList"></div>
+                            
+                            <button onclick="addAddress()">+ Add New Address</button>
+                            
+                            <div id="newAddressForm" style="display: none;">
+                                <input type="text" id="newName" placeholder="Enter your name" required style="margin-bottom: 0px;">
+                                <label for="pickupUpozila">Select Your Upozila:</label>
+                                <select id="pickupUpozila" required style="height: 30px;">
+                                    <option value="">Select Box Upozila</option>
+                                    <option value="Bhola Sadar">Bhola Sadar</option>
+                                    <option value="Daulatkhan">Daulatkhan</option>
+                                    <option value="Borhanuddin">Borhanuddin</option>
+                                    <option value="Lalmohan">Lalmohan</option>
+                                    <option value="Tazumuddin">Tazumuddin</option>
+                                    <option value="Charfashion">Charfashion</option>
+                                    <option value="Manpura">Manpura</option>
+                                </select>
+                                <input type="text" id="newAddress" placeholder="Enter Detail Address" required style="margin-bottom: 0px;">
+                                <input type="url" id="pickup-map" placeholder="https://maps.app.goo.gl/..........." required>
+                                <input type="tel" id="pickup-phone" placeholder="Enter Your Phone Number" required>
+                                
+                                <button onclick="saveAddress()">Save Address</button>
+                            </div>
+                        </div>
+                        <!-- Existing Create Order Button 
+                        <button id="proceedButton">Proceed</button>-->
+
+                        <!-- Submit Button -->
+                        <button id="saveAddressButton" onclick="createOrder()">Create Order</button>
+                    </div>
+                </section>
+                
+                <!-- New Order section will be implemented here -->
+            
+        </main>
+    </div>
+    <footer class="footer-new">
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-section logo-section">
+                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
+                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
+            </div>
+
+            <!-- Quick Links -->
+            
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +880-1881147707</p>
+                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
+            </div>
+
+            <!-- Social Media and Newsletter -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
+        </div>
+    </footer>
+   
+  
+<script type="module" src="new_order.js"></script>      
+      
+ 
+</body>
+</html>

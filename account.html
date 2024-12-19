@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Order</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+</head>
+<body id="dashboard-body">
+    <!-- Notification Popup -->
+    <div id="notification" >
+        <span id="notification-message"></span>
+    </div>
+    <header>
+        
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
+                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-links" href="loading.html">Profile</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="dashboard-acc">
+        <aside class="sidebar" id="sidebar">
+            <select id="sidebarDropdown">
+                <!--<option value="">select one</option>-->
+                <option value="user_dashboard">Order History</option>
+                <option value="new_order">Create New Order</option>
+                <option value="account">Account & Payment</option>
+            </select>
+        </aside> 
+
+        <main class="content-main">
+            <!-- Subscription Purchase Section -->
+            <section class="subscription-purchase">
+                <h2>Available Subscription Packages</h2>
+                <div class="package-options" id="package-options">
+                    
+                    <!-- Subscription packages will load here dynamically -->
+                </div>
+                <!-- Payment Form (Initially Hidden) -->
+                <div id="payment-segment" style="display: none;">
+                    <h3>Payment Details</h3>
+                    <p>Total: <span id="payment-price"></span></p>
+                    <form id="payment-form">
+                        <label for="payment-number">Bkash Number of payment</label>
+                        <input type="text" id="payment-number" required>
+                        
+                        <label for="transectionID">Transection ID</label>
+                        <input type="text" id="transectionID" required>
+                        
+                        <label for="reference">Reference Text</label>
+                        <input type="text" id="reference" required>
+                        
+                        <!-- Add the submit button with correct ID -->
+                        <button id="submit-payment" onclick="submitPayment(event)">Submit Payment</button>
+
+                    </form>
+                </div>
+
+            </section>
+            <!-- Subscription Details Section -->
+            <section class="subscription-details">
+                <h2>Subscription Details</h2>
+                <div class="subscription-info">
+                    <p><strong>Package:</strong> <span id="package-name"></span></p>
+                    <p><strong>Start Date:</strong> <span id="start-date"></span></p>
+                    <p><strong>End Date:</strong> <span id="end-date"></span></p>
+                    <p><strong>Due Deliveries:</strong> <span id="due-deliveries"></span></p>
+                    <p><strong>Area:</strong> <span id="area"></span></p>
+                </div>
+            </section>
+
+            <!-- COD Management Section -->
+            <!-- COD Management Section -->
+           <!-- <section class="cod-management">
+                <h2>COD Account</h2>
+                <div class="cod-summary">
+                    <p><strong>Total Completed COD Amount:</strong> $<span id="cod-total">0.00</span></p>
+                    <p><strong>Total Available COD Amount:</strong> $<span id="availCODTotal">0.00</span></p>
+                    <p><strong>Total Approved Balance:</strong> $<span id="totalApprovedBalance">0.00</span></p>
+                    <p><strong>Total Withdrawn Amount:</strong> $<span id="totalWithdrawnAmount">0.00</span></p>
+                    <button id="withdraw-btn" class="withdraw-button">Request Withdrawal</button>
+                </div>
+            
+                <div id="withdraw-form-section" style="display: none;">
+                    <h3>Withdrawal Request</h3>
+                    <form id="withdraw-form">
+                        <label for="withdraw-amount">Amount:</label>
+                        <input type="number" id="withdraw-amount" min="505" step="505" required>
+                        
+                        <label for="withdraw-method">Payment Method:</label>
+                        <input type="text" id="withdraw-method" placeholder="e.g., Bkash" required>
+                        
+                        <label for="withdraw-reference">Reference Text:</label>
+                        <input type="text" id="withdraw-reference" required>
+                        
+                        <button type="submit" id="submit-withdraw">Submit Request</button>
+                    </form>
+                </div>
+            
+                <h3>Withdrawal Requests</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Requested Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="withdraw-table-body">
+                        Rows will be dynamically added here
+                    </tbody>
+                </table>
+            </section>-->
+            
+
+            
+
+            
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section logo-section">
+                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
+                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +880-1881147707</p>
+                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="account.js" type="module"></script>
+</body>
+</html>

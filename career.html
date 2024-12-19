@@ -1,119 +1,236 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Career</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div id="notification" class="notification">
-        <p id="notification-message"></p>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   FoodPanda Rider App
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #ff3366;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .order-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .order-card img {
+            border-radius: 8px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .order-details {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+        .order-details h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .order-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .order-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .order-actions button {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .order-actions button:hover {
+            background-color: #e62e5c;
+        }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="logo">
+    FoodPanda Rider
+   </div>
+   <nav class="nav-links">
+    <a href="#">
+     Home
+    </a>
+    <a href="#">
+     Orders
+    </a>
+    <a href="#">
+     Profile
+    </a>
+    <a href="#">
+     Settings
+    </a>
+   </nav>
+  </header>
+  <main class="main-content">
+   <div class="order-card">
+    <img alt="Image of a delicious pizza with various toppings" height="100" src="https://storage.googleapis.com/a1aa/image/QOiUBKXfQUR3bakonB7VSTn3ND8scRyob1U9jWGL8XvbzZ6JA.jpg" width="100"/>
+    <div class="order-details">
+     <h3>
+      Order #12345
+     </h3>
+     <p>
+      Restaurant: Pizza Palace
+     </p>
+     <p>
+      Customer: John Doe
+     </p>
+     <p>
+      Address: 123 Main St, Cityville
+     </p>
     </div>
-    
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
-                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-links" href="career.html">Career</a></li>
-            </ul>
-            <div class="hamburger" >
-               <!-- <img src="assets/images/delivoo favi-01.png" alt="Menu" >-->
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            
-            </div>
-        </nav>
-    </header>
-    
-
-    <div class="career-container">
-        
-            <h1 id="career-header">Join Our Team</h1>
-        
-        <div class="tabs">
-            <button id="apply-btn" class="tab-button active">Apply as a Rider</button>
-            <button id="login-btn" class="tab-button">Login as a Rider</button>
-        <!--<a onclick="showForm('signup')" id="signup-tab" class="active" >Sign Up</a>
-            <a onclick="showForm('login')" id="login-tab" >Login</a>-->
-        
-        
-        </div>
-        <section id="apply-section" class="tab-content active">
-            <h2>Application Form</h2>
-            <form id="apply-form">
-                <input type="text" placeholder="Full Name" required>
-                
-                <input type="text" placeholder="Phone Number" required>
-                <textarea type="text" placeholder="Why do you want to join?" required></textarea>
-                <input type="email" placeholder="Email" required>
-                <input type="password" id="apply-password" placeholder="Password">
-                <div>
-                    <input type="checkbox" id="apply-password" onclick="togglePasswordVisibility('apply-password', this)"> Show Password
-                </div>
-                <button type="submit">Submit Application</button>
-            </form>
-        </section>
-        <section id="login-section" class="tab-content">
-            <h2>Login Form</h2>
-            <form id="login-form">
-                <input type="email" placeholder="Email" required>
-                <input type="password" id="login-password"  placeholder="Password" required>
-                <div>
-                    <input type="checkbox" onclick="togglePasswordVisibility('login-password', this)"> Show Password
-
-                </div>
-                   
-                <button type="submit">Login</button>
-            </form>
-        </section>
+    <div class="order-actions">
+     <button>
+      Accept
+     </button>
+     <button>
+      Decline
+     </button>
     </div>
-    <footer class="footer">
-        <div class="footer-container">
-            <!-- Logo and Description -->
-            <div class="footer-section logo-section">
-                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
-                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
-            </div>
-    
-            <!-- Quick Links -->
-            
-    
-            <!-- Contact Info -->
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-phone"></i> +880-1881147707</p>
-                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
-            </div>
-    
-            <!-- Social Media and Newsletter -->
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                
-            </div>
-        </div>
-    
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script src="scripts.js"></script>
-</body>
+   </div>
+   <div class="order-card">
+    <img alt="Image of a fresh salad with various vegetables" height="100" src="https://storage.googleapis.com/a1aa/image/cv80JKOYbOZxCNlxstJc3EYImQOgMO2ky3JgBC7uLSZv5M9E.jpg" width="100"/>
+    <div class="order-details">
+     <h3>
+      Order #12346
+     </h3>
+     <p>
+      Restaurant: Salad Bar
+     </p>
+     <p>
+      Customer: Jane Smith
+     </p>
+     <p>
+      Address: 456 Elm St, Townsville
+     </p>
+    </div>
+    <div class="order-actions">
+     <button>
+      Accept
+     </button>
+     <button>
+      Decline
+     </button>
+    </div>
+   </div>
+   <div class="order-card">
+    <img alt="Image of a juicy burger with fries" height="100" src="https://storage.googleapis.com/a1aa/image/awIfhzRboA1fqUNmk2j30qVwv0Ffb9aAyLbdofKOxIq4bOTPB.jpg" width="100"/>
+    <div class="order-details">
+     <h3>
+      Order #12347
+     </h3>
+     <p>
+      Restaurant: Burger Joint
+     </p>
+     <p>
+      Customer: Mike Johnson
+     </p>
+     <p>
+      Address: 789 Oak St, Villagetown
+     </p>
+    </div>
+    <div class="order-actions">
+     <button>
+      Accept
+     </button>
+     <button>
+      Decline
+     </button>
+    </div>
+   </div>
+   <div class="order-card">
+    <img alt="Image of a sushi platter with various types of sushi" height="100" src="https://storage.googleapis.com/a1aa/image/6wBDi4eeWDqW8En0OT4LyShvP6lCUskOTeMCE3Zv1HlzNnpnA.jpg" width="100"/>
+    <div class="order-details">
+     <h3>
+      Order #12348
+     </h3>
+     <p>
+      Restaurant: Sushi World
+     </p>
+     <p>
+      Customer: Emily Davis
+     </p>
+     <p>
+      Address: 101 Pine St, Hamletville
+     </p>
+    </div>
+    <div class="order-actions">
+     <button>
+      Accept
+     </button>
+     <button>
+      Decline
+     </button>
+    </div>
+   </div>
+   <div class="order-card">
+    <img alt="Image of a bowl of ramen with various toppings" height="100" src="https://storage.googleapis.com/a1aa/image/M1aT5qmCwjJfIK2CsoN6mBNL405BfIpS739SuthqFs37mz0TA.jpg" width="100"/>
+    <div class="order-details">
+     <h3>
+      Order #12349
+     </h3>
+     <p>
+      Restaurant: Ramen House
+     </p>
+     <p>
+      Customer: Chris Brown
+     </p>
+     <p>
+      Address: 202 Maple St, Boroughville
+     </p>
+    </div>
+    <div class="order-actions">
+     <button>
+      Accept
+     </button>
+     <button>
+      Decline
+     </button>
+    </div>
+   </div>
+  </main>
+ </body>
 </html>

@@ -1,0 +1,76 @@
+<script>
+// Array to store saved addresses
+let addressList = [];
+
+// Function to display saved addresses
+function loadAddresses() {
+    const addressContainer = document.getElementById("addressList");
+    addressContainer.innerHTML = ""; // Clear existing content
+
+    // Loop through each address in addressList and display it
+    addressList.forEach((address, index) => {
+        const addressOption = document.createElement("div");
+        addressOption.innerHTML = `
+            <label>
+                <input type="radio" name="pickupAddress" value="${index}" /> 
+                ${address.name} - ${address.address}
+            </label>
+        `;
+        addressContainer.appendChild(addressOption);
+    });
+}
+
+// Function to show the "Add New Address" form
+function addAddress() {
+    document.getElementById("newAddressForm").style.display = "block";
+}
+
+// Function to save a new address
+function saveAddress() {
+    const newName = document.getElementById("newName").value;
+    const newAddress = document.getElementById("newAddress").value;
+    const pickupMap = document.getElementById("pickup-map").value;
+    const pickupPhone = document.getElementById("pickup-phone").value;
+
+    // Ensure all fields are filled
+    if (newName && newAddress && pickupMap && pickupPhone) {
+        // Add new address to addressList
+        const newAddressData = {
+            name: newName,
+            address: newAddress,
+            mapLink: pickupMap,
+            phone: pickupPhone,
+        };
+
+        addressList.push(newAddressData); // Add address to the list
+        loadAddresses(); // Refresh the address list display
+        document.getElementById("newAddressForm").style.display = "none"; // Hide form after saving
+    } else {
+        alert("Please fill all fields before saving.");
+    }
+}// Load saved addresses when the page loads
+window.onload = loadAddresses; 
+</script>
+
+<html>
+    <head>
+        <title>testing</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="pickup-address">
+            <h3>Pickup Address</h3>
+            <div id="addressList"></div>
+            
+            <button onclick="addAddress()">+ Add New Address</button>
+            
+            <div id="newAddressForm" style="display: none;">
+                <input type="text" id="newName" placeholder="Enter your name">
+                <input type="text" id="newAddress" placeholder="Enter Detail Address">
+                <input type="url" id="pickup-map" placeholder="Enter Pickup Map link">
+                <input type="tel" id="pickup-phone" placeholder="Enter Your Phone Number">
+                <button onclick="saveAddress()">Save Address</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Delivoo Ex - Home</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -21,15 +21,13 @@
                 <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
                 <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-links" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-links" href="loading.html">Profile</a></li>
             </ul>
-            <div class="hamburger" >
-               <!-- <img src="assets/images/delivoo favi-01.png" alt="Menu" >-->
+            <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            
             </div>
         </nav>
 
@@ -40,11 +38,14 @@
     <div class="hero">
         <img src="assets/images/landing1.jpg" alt="hero-image" id="hero-img">
     </div>
-    <div class="social-links">
-        <h2>We Are Here</h2>
-        <a href="https://www.facebook.com/delivooex/" target="_blank"><img id="fb"  src="assets/images/fblogo.png" alt="fblogo"></a>
-
-    </div>
+    <section class="social-links">
+        
+          <a  href="https://www.facebook.com/delivooex/" target="_blank">
+            <img id="fb" src="assets/images/fblogo.png" alt="Facebook Logo">
+          </a>
+        
+        <p id="pragraph">এগিয়ে যান ঝড়ো গতিতে, <br>আমরা আছি আপনার পাশে। </p>
+      </section>
 
     <div id="slide-photo"  >
         <img id="photo" src="assets/images/photo slider/p1 copy.jpg" alt="Slide 1">
@@ -135,6 +136,25 @@
     </footer>
     
 
-    <script src="scripts.js"></script>
+    <script>
+        // Toggle hamburger menu visibility
+        function setupMenuToggle() {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            document.querySelectorAll(".nav-link").forEach(n => 
+                n.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                })
+            );
+        }
+        setupMenuToggle();
+    </script>
 </body>
 </html>

@@ -3,32 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <div class="dashboard">
-        <!-- Sidebar -->
-        <nav class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li><a href="#">Order History</a></li>
-                <li><a href="#">New Order</a></li>
-                <li><a href="#">Settings</a></li>
+<body id="dashboard-body">
+    <!-- Notification Popup -->
+    <div id="notification" >
+        <span id="notification-message"></span>
+    </div>
+    <header>
+        
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="assets/images/logo white-01.png" alt="Delivoo Ex Logo"></a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a class="nav-links" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-links" href="login.html">Login/Signup</a></li>
+                <li class="nav-item"><a class="nav-links" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-links" href="loading.html">Profile</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
+    </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <header>
-                <h1>Welcome, [User/Rider]</h1>
-            </header>
-            <section class="content-area">
-                <!-- Dynamic content will go here -->
+    <div class="dashboard">
+     
+        <main class="content">
+            <div class="dashboard-header">
+                <aside class="sidebar" id="sidebar">
+                    <select id="sidebarDropdown">
+                        <!--<option value="">select one</option>-->
+                        <option value="user_dashboard">Order History</option>
+                        <option value="new_order">Create New Order</option>
+                        <option value="account">Account & Payment</option>
+                    </select>
+                </aside>
+                
+                <button id="logout-btn" class="logout-button">Logout</button>
+            </div>
+            <section id="history">
+                <p id="worning" style="color: red;">Please scroll right side</p>
+                <div id="welcome-message">
+                    <h2 id="username"></h2> <!-- Username will be displayed here -->
+                </div>
+                <h2>Order History</h2>
+                <div class="history-container">
+                    <div class="order-summary">
+                        <div class="summary-box" id="totalOrders"><h3>Total Orders</h3><p>0</p></div>
+                        <div class="summary-box" id="completedOrders"><h3>Completed Orders</h3><p>0</p></div>
+                        <div class="summary-box" id="pendingOrders"><h3>Pending Orders</h3><p>0</p></div>
+                    </div>
+
+                    <div class="filter-section">
+                        <label for="dateFilter">Date:</label>
+                        <input type="date" id="dateFilter" >
+                        
+                        <label for="statusFilter">Order Status:</label>
+                        <select id="statusFilter">
+                            <option value="all">All</option>
+                            <option value="completed">completed</option>
+                            <option value="returned">Returned</option>
+                            <option value="canceled">Canceled</option>
+                            <option value="ongoing">ongoing</option>
+                        </select>
+                        <label for="paymentFilter">Payment Type:</label>
+                        <select id="paymentFilter">
+                            <option value="all">All</option>
+                            <option value="COD">COD</option>
+                            <option value="prepaid">Pre-paid</option>
+                        </select>
+                        <button id="filter-section">Apply Filters</button>
+                    </div>
+
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th><th>Date</th><th>Receiver Name</th><th>Receiver Address</th>
+                                <th>Order Item</th><th>Receiver Phone No</th><th>Order Amount</th>
+                                <th>Payment Type</th><th>Order Status</th><th>withdraw</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderHistoryBody"></tbody>
+                    </table>
+                </div>
             </section>
+            <div id="withdrawModal" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Submit Withdrawal Request</h3>
+                    <p style="color: red;">প্রতি উইথড্র থেকে সর্বনিন্ম সেন্ডমানি চার্জ কাটা হবে</p>
+                    <form id="withdrawForm">
+                        <label for="withdrawAmount">Amount:</label>
+                        <input type="text" id="withdrawAmount" readonly style="width: 90%;">
+                        
+                        <label for="withdrawMethod">Payment Method:</label>
+                        <select id="withdrawMethod" name="method" required style="height: 30px; border-radius: 10px; margin-bottom: 10px;" >
+                            <option value="bkash" style="width: 90%;">Bkash</option>
+                            <option value="rocket" style="width: 90%;">Rocket</option>
+                        </select>
+                        
+                        <label for="withdrawNumber">Payment Number:</label>
+                        <input type="text" id="withdrawNumber" name="Number" required style="width: 90%;">
+                        
+                        <button type="submit">Submit</button>
+                        <button type="button" id="closeModal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            
         </main>
     </div>
 
-    <script src="dashboard.js"></script>
+
+<!-- Modal for Withdrawal Request -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section logo-section">
+                <img src="assets/images/logo white-01.png" alt="DelivooEx Logo" class="footer-logo">
+                <p>On time, every time! DelivooEx offers reliable and affordable parcel delivery for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +880-1881147707</p>
+                <p><i class="fas fa-envelope"></i> support@delivooex.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhola Sadar, Bhola</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/delivooex/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DelivooEx. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<script type="module" src="dashboard.js"></script>
 </body>
 </html>

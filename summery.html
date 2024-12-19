@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-roboto">
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Order Confirmation</h1>
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Order Details</h2>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Receiver Name:</span>
+                    <span id="receiverName"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Delivery Address:</span>
+                    <span id="deliveryAddress"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Order Item:</span>
+                    <span id="orderItem"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Receiver Phone:</span>
+                    <span id="receiverPhone"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Order Amount:</span>
+                    <span id="orderAmount"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Payment Type:</span>
+                    <span id="paymentType"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Box Size:</span>
+                    <span id="boxSize"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Order Weight:</span>
+                    <span id="orderWeight"></span>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Pickup Address:</span>
+                    <span id="pickupAddress"></span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold mb-2">Total Amount</h2>
+                <div class="flex items-center justify-between mt-2">
+                    <span class="font-medium">Total Amount (including delivery):</span>
+                    <span id="totalAmount"></span>
+                </div>
+            </div>
+            <button id="createOrderButton" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+                Create Order
+            </button>
+        </div>
+    </div>
+    <script src="summery.js"></script>
+</body>
+</html>

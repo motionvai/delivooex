@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .body{
+            text-align: center;
+        }
+        .payment-container {
+            text-align: center;
+            justify-content: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 50%;
+        }
+        .payment-form{
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="payment-container">
+        <h2>Payment Information</h2>
+        <form id="payment-form">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required>
+
+            <label for="card-expiry">Card Expiry:</label>
+            <input type="text" id="card-expiry" name="card-expiry" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Replace with your actual payment gateway integration
+        function processPayment() {
+            // Get payment details
+            const cardNumber = document.getElementById('card-number').value;
+            const cardExpiry = document.getElementById('card-expiry').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Simulate payment processing (replace with actual gateway integration)
+            alert('Processing payment...');
+            // Here, you would typically send the payment details to a payment gateway API
+            // and handle the response accordingly.
+
+            // For demonstration purposes, let's just display a success message
+            setTimeout(() => {
+                alert('Payment successful!');
+                // Redirect to a confirmation page or other desired action
+                window.location.href = 'confirmation.html';
+            }, 2000);
+        }
+
+        // Event listener for form submission
+        document.getElementById('payment-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            processPayment();
+        });
+    </script>
+</body>
+</html>
